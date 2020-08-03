@@ -5,7 +5,7 @@ open class TabBarCoordinator: Coordinator {
     // MARK: - Public properties
 
     public private(set) weak var tabBarController: UITabBarController?
-    public private(set) var coordinators: [Coordinator]
+    public private(set) var coordinators: [TabBarItemCoordinator]
     public let initiallySelectedIndex: Int
     
     // MARK: - Private properties
@@ -15,7 +15,7 @@ open class TabBarCoordinator: Coordinator {
     // MARK: - Initialization
     
     public init(tabBarController: UITabBarController = UITabBarController(),
-                coordinators: [Coordinator], initiallySelectedIndex: Int = 0) {
+                coordinators: [TabBarItemCoordinator], initiallySelectedIndex: Int = 0) {
         
         self.tabBarController = tabBarController
         self.coordinators = coordinators
@@ -40,9 +40,10 @@ open class TabBarCoordinator: Coordinator {
             .selectedViewController, options: [.initial, .new]) {
                 [weak self] tabBarController, change in
                 guard let selectedViewController = change.newValue as? UINavigationController,
-                    selectedViewController.isViewLoaded == false,
                     let index = self?.coordinators.firstIndex(
-                    where: { $0.navigationController === selectedViewController }) else {
+                        where: { $0.navigationController === selectedViewController }),
+                    let coordinator = self?.coordinators[index],
+                    coordinator.isStarted == false else {
                     return
             }
             self?.coordinators[index].start()
