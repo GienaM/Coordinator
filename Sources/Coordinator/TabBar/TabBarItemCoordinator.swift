@@ -1,6 +1,6 @@
 import UIKit
 
-public class TabBarItemCoordinator: Coordinator {
+open class TabBarItemCoordinator: Coordinator {
     
     // MARK: - Public properties
     
