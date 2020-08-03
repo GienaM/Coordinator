@@ -21,7 +21,7 @@ open class TabBarItemCoordinator: Coordinator {
     
     // MARK: - Start
     
-    public override func start(animated: Bool = true, completion: (() -> ())? = nil) {
+    open override func start(animated: Bool = true, completion: (() -> ())? = nil) {
         isStarted = true
     }
 }
