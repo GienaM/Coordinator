@@ -31,7 +31,7 @@ open class TabBarCoordinator: Coordinator {
     
     // MARK: - Start
     
-    open override func start(animated: Bool = true, completion: (() -> ())? = nil) {
+    open override func start(animated: Bool = true, completion: (() -> Void)? = nil) {
         tabBarController?.setViewControllers(
             coordinators.compactMap { $0.navigationController }, animated: animated)
         tabBarController?.selectedIndex = initiallySelectedIndex

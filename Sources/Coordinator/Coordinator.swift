@@ -34,7 +34,9 @@ open class Coordinator: NSObject, CoordinatorInterface {
     
     // MARK: - Routing
     
-    open func start(animated: Bool = true, completion: (() -> ())? = nil) {}
+    open func start(animated: Bool = true, completion: (() -> Void)? = nil) {
+        print("Coordinator: \(self) start")
+    }
     
     open func finish() {
         modalNavigationController?.dismiss(animated: false, completion: nil)
