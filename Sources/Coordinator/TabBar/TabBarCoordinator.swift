@@ -4,7 +4,7 @@ open class TabBarCoordinator: Coordinator {
     
     // MARK: - Public properties
 
-    public private(set) weak var tabBarController: UITabBarController?
+    public private(set) var tabBarController: UITabBarController?
     public private(set) var coordinators: [TabBarItemCoordinator]
     public let initiallySelectedIndex: Int
     
