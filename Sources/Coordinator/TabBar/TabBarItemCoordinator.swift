@@ -12,7 +12,7 @@ open class TabBarItemCoordinator: Coordinator {
     
     // MARK: - Initialization
     
-    init(tabBarItem: UITabBarItem, navigationController: UINavigationController) {
+    public init(tabBarItem: UITabBarItem, navigationController: UINavigationController) {
         self.tabBarItem = tabBarItem
         navigationController.tabBarItem = tabBarItem
         
