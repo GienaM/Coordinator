@@ -7,13 +7,13 @@ open class Coordinator: NSObject, CoordinatorInterface {
     public private(set) var navigationController: UINavigationController?
     public private(set) weak var modalNavigationController: UINavigationController?
     
-    public private(set) var childCoordinator: Coordinator? {
+    public var childCoordinator: Coordinator? {
         willSet {
             childCoordinator?.finish()
         }
     }
     
-    public private(set) var modalChildCoordinator: Coordinator? {
+    public var modalChildCoordinator: Coordinator? {
         willSet {
             modalChildCoordinator?.finish()
         }
