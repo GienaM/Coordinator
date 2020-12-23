@@ -5,7 +5,7 @@ open class Coordinator: NSObject, CoordinatorInterface {
     // MARK: - Public properties
     
     public private(set) var navigationController: UINavigationController?
-    public private(set) weak var modalNavigationController: UINavigationController?
+    public weak var modalNavigationController: UINavigationController?
     
     public var childCoordinator: Coordinator? {
         willSet {
