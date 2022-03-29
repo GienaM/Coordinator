@@ -58,6 +58,14 @@ open class TabBarCoordinator: Coordinator {
     }
     
     // MARK: - Public methods
+
+    public func coordinator<T: Coordinator>(for index: Int) -> T? {
+        guard coordinators.indices.contains(index) else {
+            return nil
+        }
+
+        return coordinators[index] as? T
+    }
     
     public func selectTabBarItem(for index: Int) {
         guard coordinators.indices.contains(index) else {
